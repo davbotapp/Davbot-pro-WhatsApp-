@@ -46,9 +46,9 @@ async function getGroupEventsSettings() {
     } catch (error) {
         console.error('Error getting group events settings:', error);
         return { 
-            enabled: false,
-            welcomeMessage: "Welcome @user to {group}!",
-            goodbyeMessage: "Goodbye @user!",
+            enabled: true,
+            welcomeMessage: "𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝘂 @user 𝗱𝗮 𝗹𝗲 𝗴𝗿𝗼𝘂𝗽𝗲: {group}!",
+            goodbyeMessage: "𝗘𝗻 𝗳𝗶𝗻 𝗰𝗲𝘁𝘁𝗲 𝗶𝗺𝗯𝗲𝗰𝗶𝗹𝗲 𝗲𝘀𝘁 𝗽𝗮𝗿𝘁𝗶𝗲 @user! ",
             showPromotions: true
         };
     }
