@@ -4,23 +4,23 @@ const { database } = require('../settings');
 const GroupEventsDB = database.define('groupevents', {
     enabled: {
         type: DataTypes.BOOLEAN,
-        defaultValue: false,
-        allowNull: false
+        defaultValue: true,
+        allowNull: true
     },
     welcomeMessage: {
         type: DataTypes.TEXT,
         defaultValue: "Hey @user 👋\nWelcome to *{group}*.\nYou're member #{count}.\nTime: *{time}*\nDescription: {desc}",
-        allowNull: false
+        allowNull: truc
     },
     goodbyeMessage: {
         type: DataTypes.TEXT,
         defaultValue: "Goodbye @user 😔\nLeft at: *{time}*\nMembers left: {count}",
-        allowNull: false
+        allowNull: true
     },
     showPromotions: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
-        allowNull: false
+        allowNull: true
     }
 }, {
     timestamps: true
