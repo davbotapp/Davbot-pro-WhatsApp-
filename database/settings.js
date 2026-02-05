@@ -5,12 +5,12 @@ const { database } = require('../settings');
 const SettingsDB = database.define('settings', {
     prefix: {
         type: DataTypes.STRING,
-        defaultValue: ".",
+        defaultValue: "+",
         allowNull: false
     },
     author: {
         type: DataTypes.STRING,
-        defaultValue: "Keith",
+        defaultValue: "𝗜𝗿 𝗱𝗮𝘃𝗶𝗱 𝗺𝗽𝗼𝗻𝗴𝗼",
         allowNull: false
     },
     url: {
@@ -30,12 +30,12 @@ const SettingsDB = database.define('settings', {
     },
     botname: {
         type: DataTypes.STRING,
-        defaultValue: "KEITH-MD",
+        defaultValue: "𝗗𝗮𝘃𝗯𝗼𝘁 𝗔𝗽𝗽",
         allowNull: false
     },
     packname: {
         type: DataTypes.STRING,
-        defaultValue: "KEITH-MD",
+        defaultValue: "𝗗𝗮𝘃𝗯𝗼𝘁 𝗔𝗽𝗽",
         allowNull: false
     },
     mode: {
@@ -47,7 +47,7 @@ const SettingsDB = database.define('settings', {
     },
     sessionName: {
         type: DataTypes.STRING,
-        defaultValue: "keith-md",
+        defaultValue: "𝗗𝗮𝘃𝗯𝗼𝘁 𝗔𝗽𝗽",
         allowNull: false
     }
 }, {
@@ -77,15 +77,15 @@ async function getSettings() {
         // Fallback to default settings
         return {
             prefix: ".",
-            author: "Keith",
+            author: "𝗜𝗿 𝗱𝗮𝘃𝗶𝗱 𝗺𝗽𝗼𝗻𝗴𝗼",
             url: "https://files.catbox.moe/9zqj7g.jpg",
             gurl: "https://github.com/Keithkeizzah/KEITH-MD",
             timezone: "Africa/Nairobi",
-            botname: "KEITH-MD",
-            packname: "KEITH-MD",
+            botname: "𝗗𝗮𝘃𝗯𝗼𝘁 𝗔𝗣𝗣",
+            packname: "𝗱𝗮𝘃𝗯𝗼𝘁 𝗮𝗽𝗽",
             mode: "public",
            
-            sessionName: "KEITH-MD"
+            sessionName: "𝗱𝗮𝘃𝗯𝗼𝘁 𝗮𝗽𝗽"
         };
     }
 }
