@@ -1,35 +1,31 @@
-name: Auto Deploy KEITH-MD
+name: KEITH-MD Bot Auto Deploy (4h)
 
-# Déclenchement automatique toutes les 5 heures
 on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
   schedule:
-    - cron: '0 */5 * * *' # à chaque 5h
-  workflow_dispatch: # permet aussi un déploiement manuel
+    - cron: "0 */4 * * *"   # ⏰ toutes les 4 heures
 
 jobs:
-  deploy:
+  run-bot:
     runs-on: ubuntu-latest
+    timeout-minutes: 235    # ~3h55 (avant le prochain redéploiement)
 
     steps:
-      - name: Checkout repository
+      - name: 📥 Cloner le dépôt
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🟢 Installer Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
-      - name: Install dependencies
+      - name: 📦 Installer les dépendances
         run: npm install
 
-      - name: Start Bot
-        run: |
-          # kill existing node process if any
-          pkill -f "node index.js" || true
-          # start bot in background
-          nohup node index.js > bot.log 2>&1 &
-          
-      - name: Confirm Bot Status
-        run: |
-          echo "Bot deployed successfully!"
-          ps aux | grep "node index.js"
+      - name: ▶️ Lancer le bot
+        run: npm start
