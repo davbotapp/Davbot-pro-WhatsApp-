@@ -8,12 +8,12 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: "0 */5 * * *"   # ⏰ toutes les 5 heures
+    - cron: "0 */5 * * *"   # ⏰ Toutes les 5 heures
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
-    timeout-minutes: 295    # ~4h55 (avant le prochain redéploiement)
+    timeout-minutes: 295    # ⏱️ 4h55 (sécurité avant le prochain run)
 
     steps:
       - name: 📥 Cloner le dépôt
