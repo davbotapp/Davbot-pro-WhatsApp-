@@ -10,7 +10,7 @@ const SettingsDB = database.define('settings', {
     },
     author: {
         type: DataTypes.STRING,
-        defaultValue: "𝗜𝗿 𝗱𝗮𝘃𝗶𝗱 𝗺𝗽𝗼𝗻𝗴𝗼",
+        defaultValue: "𝗜𝗿 𝗗𝗮𝘃𝗶𝗱 𝗠𝗽𝗼𝗻𝗴𝗼",
         allowNull: false
     },
     url: {
@@ -35,7 +35,7 @@ const SettingsDB = database.define('settings', {
     },
     packname: {
         type: DataTypes.STRING,
-        defaultValue: "𝗗𝗮𝘃𝗯𝗼𝘁 𝗔𝗽𝗽",
+        defaultValue: "KEITH-MD",
         allowNull: false
     },
     mode: {
@@ -47,7 +47,7 @@ const SettingsDB = database.define('settings', {
     },
     sessionName: {
         type: DataTypes.STRING,
-        defaultValue: "𝗗𝗮𝘃𝗯𝗼𝘁 𝗔𝗽𝗽",
+        defaultValue: "keith-md",
         allowNull: false
     }
 }, {
@@ -76,16 +76,16 @@ async function getSettings() {
         console.error('Error getting settings:', error);
         // Fallback to default settings
         return {
-            prefix: ".",
-            author: "𝗜𝗿 𝗱𝗮𝘃𝗶𝗱 𝗺𝗽𝗼𝗻𝗴𝗼",
+            prefix: "+",
+            author: "𝗜𝗿 𝗗𝗮𝘃𝗶𝗱 𝗠𝗽𝗼𝗻𝗴𝗼",
             url: "https://files.catbox.moe/9zqj7g.jpg",
             gurl: "https://github.com/Keithkeizzah/KEITH-MD",
             timezone: "Africa/Nairobi",
-            botname: "𝗗𝗮𝘃𝗯𝗼𝘁 𝗔𝗣𝗣",
-            packname: "𝗱𝗮𝘃𝗯𝗼𝘁 𝗮𝗽𝗽",
+            botname: "𝗗𝗮𝘃𝗯𝗼𝘁 𝗔𝗽𝗽",
+            packname: "KEITH-MD",
             mode: "public",
            
-            sessionName: "𝗱𝗮𝘃𝗯𝗼𝘁 𝗮𝗽𝗽"
+            sessionName: "KEITH-MD"
         };
     }
 }
