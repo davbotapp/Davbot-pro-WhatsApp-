@@ -9,12 +9,12 @@ const GroupEventsDB = database.define('groupevents', {
     },
     welcomeMessage: {
         type: DataTypes.TEXT,
-        defaultValue: "Hey @user 👋\nWelcome to *{group}*.\nYou're member #{count}.\nTime: *{time}*\nDescription: {desc}",
+        defaultValue: "𝗦𝗮𝗹𝘂𝘁 @user 👋\n𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝘂 𝗱𝗮𝗻𝘀 *{group}*.\n𝘁𝘂 𝗲𝘀 𝗺𝗲𝗺𝗯𝗿𝗲 #{count}.\nTime: *{time}*\nDescription: {desc}",
         allowNull: true
     },
     goodbyeMessage: {
         type: DataTypes.TEXT,
-        defaultValue: "Goodbye @user 😔\nLeft at: *{time}*\nMembers left: {count}",
+        defaultValue: "𝗕𝘆𝗲  @user 𝗻𝗲 𝗿𝗲𝘃𝗶𝗲𝗻𝘀 𝗽𝗹𝘂𝘀😔\nLeft at: *{time}*\nMembers left: {count}",
         allowNull: true
     },
     showPromotions: {
