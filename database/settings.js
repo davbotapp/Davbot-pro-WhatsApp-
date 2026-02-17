@@ -20,7 +20,7 @@ const SettingsDB = database.define('settings', {
     },
     gurl: {
         type: DataTypes.STRING,
-        defaultValue: "https://github.com/Keithkeizzah/KEITH-MD",
+        defaultValue: "https://davbot-bet.vercel.app",
         allowNull: false
     },
     timezone: {
@@ -35,7 +35,7 @@ const SettingsDB = database.define('settings', {
     },
     packname: {
         type: DataTypes.STRING,
-        defaultValue: "KEITH-MD",
+        defaultValue: "𝗗𝗮𝘃",
         allowNull: false
     },
     mode: {
@@ -47,7 +47,7 @@ const SettingsDB = database.define('settings', {
     },
     sessionName: {
         type: DataTypes.STRING,
-        defaultValue: "keith-md",
+        defaultValue: "𝗗𝗮𝘃",
         allowNull: false
     }
 }, {
@@ -79,13 +79,13 @@ async function getSettings() {
             prefix: "+",
             author: "𝗜𝗿 𝗗𝗮𝘃𝗶𝗱 𝗠𝗽𝗼𝗻𝗴𝗼",
             url: "https://i.ibb.co/yF8z02Z3/mysterious-hacker-figure-sitting-dark-260nw-2675788995.webp",
-            gurl: "https://github.com/Keithkeizzah/KEITH-MD",
+            gurl: "https://davbot-bet.vercel.app",
             timezone: "Africa/Nairobi",
             botname: "𝗗𝗮𝘃𝗯𝗼𝘁 𝗔𝗽𝗽",
-            packname: "KEITH-MD",
+            packname: "𝗗𝗮𝘃",
             mode: "public",
            
-            sessionName: "KEITH-MD"
+            sessionName: "𝗗𝗮𝘃"
         };
     }
 }
