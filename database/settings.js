@@ -15,7 +15,7 @@ const SettingsDB = database.define('settings', {
     },
     url: {
         type: DataTypes.STRING,
-        defaultValue: "https://files.catbox.moe/9zqj7g.jpg",
+        defaultValue: "https://i.ibb.co/yF8z02Z3/mysterious-hacker-figure-sitting-dark-260nw-2675788995.webp",
         allowNull: false
     },
     gurl: {
@@ -78,7 +78,7 @@ async function getSettings() {
         return {
             prefix: "+",
             author: "𝗜𝗿 𝗗𝗮𝘃𝗶𝗱 𝗠𝗽𝗼𝗻𝗴𝗼",
-            url: "https://files.catbox.moe/9zqj7g.jpg",
+            url: "https://i.ibb.co/yF8z02Z3/mysterious-hacker-figure-sitting-dark-260nw-2675788995.webp",
             gurl: "https://github.com/Keithkeizzah/KEITH-MD",
             timezone: "Africa/Nairobi",
             botname: "𝗗𝗮𝘃𝗯𝗼𝘁 𝗔𝗽𝗽",
