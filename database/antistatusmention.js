@@ -4,7 +4,7 @@ const { database } = require('../settings');
 const AntiStatusMentionDB = database.define('antistatusmention', {
     status: {
         type: DataTypes.ENUM('off', 'warn', 'delete', 'remove'),
-        defaultValue: 'delete',
+        defaultValue: 'warn',
         allowNull: false
     },
     action: {
@@ -14,60 +14,16 @@ const AntiStatusMentionDB = database.define('antistatusmention', {
     },
     warn_limit: {
         type: DataTypes.INTEGER,
-        defaultValue: 2,
+        defaultValue: 1,
         allowNull: false
     }
 }, {
     timestamps: true
 });
 
-// ===== WARN SYSTEM =====
-const warnCounts = new Map();
+// Store warn counts in memory
+const statusWarnCounts = new Map();
 
-function getWarnCount(userJid) {
-    return warnCounts.get(userJid) || 0;
-}
-
-function incrementWarnCount(userJid) {
-    const current = getWarnCount(userJid);
-    warnCounts.set(userJid, current + 1);
-    return current + 1;
-}
-
-function resetWarnCount(userJid) {
-    warnCounts.delete(userJid);
-}
-
-function clearAllWarns() {
-    warnCounts.clear();
-}
-
-// ===== ANTI SPAM SYSTEM =====
-const messageTracker = new Map();
-
-function trackUserMessages(userJid) {
-    const now = Date.now();
-
-    if (!messageTracker.has(userJid)) {
-        messageTracker.set(userJid, []);
-    }
-
-    const timestamps = messageTracker.get(userJid);
-
-    // garder seulement les messages envoyés dans 5 secondes
-    const filtered = timestamps.filter(t => now - t < 5000);
-    filtered.push(now);
-
-    messageTracker.set(userJid, filtered);
-
-    return filtered.length;
-}
-
-function resetUserMessages(userJid) {
-    messageTracker.delete(userJid);
-}
-
-// ===== DB INIT =====
 async function initAntiStatusMentionDB() {
     try {
         await AntiStatusMentionDB.sync({ alter: true });
@@ -86,11 +42,11 @@ async function getAntiStatusMentionSettings() {
         });
         return settings;
     } catch (error) {
-        console.error('Error getting antistatusmention settings:', error);
+        console.error('Error getting anti-status-mention settings:', error);
         return { 
-            status: 'warn', 
+            status: 'off', 
             action: 'warn', 
-            warn_limit: 2
+            warn_limit: 1
         };
     }
 }
@@ -100,20 +56,36 @@ async function updateAntiStatusMentionSettings(updates) {
         const settings = await getAntiStatusMentionSettings();
         return await settings.update(updates);
     } catch (error) {
-        console.error('Error updating antistatusmention settings:', error);
+        console.error('Error updating anti-status-mention settings:', error);
         return null;
     }
+}
+
+function getStatusWarnCount(userJid) {
+    return statusWarnCounts.get(userJid) || 0;
+}
+
+function incrementStatusWarnCount(userJid) {
+    const current = getStatusWarnCount(userJid);
+    statusWarnCounts.set(userJid, current + 1);
+    return current + 1;
+}
+
+function resetStatusWarnCount(userJid) {
+    statusWarnCounts.delete(userJid);
+}
+
+function clearAllStatusWarns() {
+    statusWarnCounts.clear();
 }
 
 module.exports = {
     initAntiStatusMentionDB,
     getAntiStatusMentionSettings,
     updateAntiStatusMentionSettings,
-    getWarnCount,
-    incrementWarnCount,
-    resetWarnCount,
-    clearAllWarns,
-    trackUserMessages,
-    resetUserMessages,
+    getStatusWarnCount,
+    incrementStatusWarnCount,
+    resetStatusWarnCount,
+    clearAllStatusWarns,
     AntiStatusMentionDB
 };
