@@ -14,7 +14,7 @@ const AntiLinkDB = database.define('antilink', {
     },
     warn_limit: {
         type: DataTypes.INTEGER,
-        defaultValue: 2,
+        defaultValue: 1,
         allowNull: false
     }
 }, {
@@ -46,7 +46,7 @@ async function getAntiLinkSettings() {
         return { 
             status: 'warn', 
             action: 'warn', 
-            warn_limit: 2
+            warn_limit: 1
         };
     }
 }
