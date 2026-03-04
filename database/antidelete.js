@@ -1,4 +1,4 @@
-
+ 
 const { DataTypes } = require('sequelize');
 const { database } = require('../settings');
 
