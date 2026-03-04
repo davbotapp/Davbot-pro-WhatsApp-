@@ -5,7 +5,7 @@ const { database } = require('../settings');
 const AntiDeleteDB = database.define('antidelete', {
     status: {
         type: DataTypes.BOOLEAN,
-        defaultValue: true,
+        defaultValue: true, 
         allowNull: false
     },
     notification: {
