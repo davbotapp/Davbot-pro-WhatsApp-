@@ -19,7 +19,7 @@ const GroupEventsDB = database.define('groupevents', {
     },
     showPromotions: {
         type: DataTypes.BOOLEAN,
-        defaultValue: false, // 🔴 Désactivé aussi
+        defaultValue: true, // 🔴 Désactivé aussi
         allowNull: false
     }
 }, {
